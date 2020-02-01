@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicio 1</title>
+</head>
+<body>
+    <button id="geraQuadrado">Cria Quadrado!!!</button>
+    <script>
+        var formElement = document.body;
+        var buttonElement = formElement.querySelector('button#geraQuadrado');
+
+        function criaQuadrado() {        
+            var quadrado = document.createElement('button');            
+        
+            quadrado.style.backgroundColor = 'red';
+            quadrado.style.width = "100px";
+            quadrado.style.height = "100px";
+
+            formElement.appendChild(quadrado);            
+        }
+
+        buttonElement.onclick = criaQuadrado;
+    </script>
+</body>
+</html>
