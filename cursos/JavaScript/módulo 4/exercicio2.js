@@ -15,7 +15,7 @@ function adicionarPromise(userName) {
     geradorLi('Carregando...');
 
     var promise = () => {
-        return new Promise(function (resolve, reject) {
+        return new Promise(function(resolve, reject) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET','https://api.github.com/users/'+userName+'/repos');
             xhr.send(null);
@@ -32,14 +32,15 @@ function adicionarPromise(userName) {
     }
 
     promise()
-        .then (function(response) {  
+        .then ((response) => {  
             limpaLista();
-            for (var x = 0; x <= response.length-1; x++)                        
+            for (var x = 0; x <= response.length-1; x++)                    
                 geradorLi(response[x].name);                
         })
-        .catch (function(error) {
+        .catch ((error) => {
             limpaLista();
-            geradorLi('Não foi possível encontrar repositórios deste usuário')
+            console.log(error);
+            geradorLi('Não foi possível encontrar repositórios deste usuário');
         })
 }
 
