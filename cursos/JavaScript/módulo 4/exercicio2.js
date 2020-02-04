@@ -21,8 +21,8 @@ function adicionarPromise(userName) {
 
             xhr.onreadystatechange = () => {
                 if (xhr.readyState === 4) {
-                    if (xhr.status === 200) 
-                        resolve(JSON.parse(xhr.responseText))
+                    if (xhr.status === 200)
+                        resolve(JSON.parse(xhr.responseText))  
                     else
                         reject()
                 }
@@ -31,8 +31,9 @@ function adicionarPromise(userName) {
     }
 
     promise()
-        .then (function(response) {
-            console.log(response);
+        .then (function(response) {    
+            for (var x = 0; x <= response.length-1; x++)        
+                console.log(response[x].name);                
         })
         .catch (function(error) {
             console.log(error);
