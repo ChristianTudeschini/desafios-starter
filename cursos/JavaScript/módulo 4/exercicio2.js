@@ -33,12 +33,19 @@ function adicionarPromise(userName) {
     promise()
         .then (function(response) {    
             for (var x = 0; x <= response.length-1; x++)        
-                console.log(response[x].name);                
+                //console.log(response[x].name);
+                geradorLi(response[x].name);
+                
         })
         .catch (function(error) {
             console.log(error);
         })
 
+}
 
-
+function geradorLi(nomeProjeto) {
+    var itemControl = document.createElement('li');
+    var textItem = document.createTextNode(nomeProjeto);
+    itemControl.appendChild(textItem);
+    listControl.appendChild(itemControl);
 }
