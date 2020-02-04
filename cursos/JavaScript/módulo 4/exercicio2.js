@@ -13,6 +13,8 @@ function adicionar() {
 
 function adicionarPromise(userName) {
 
+    geradorLi('Carregando...');
+
     var promise = () => {
         return new Promise(function (resolve, reject) {
             var xhr = new XMLHttpRequest();
@@ -22,30 +24,31 @@ function adicionarPromise(userName) {
             xhr.onreadystatechange = () => {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200)
-                        resolve(JSON.parse(xhr.responseText))  
+                        resolve(JSON.parse(xhr.responseText))  ;
                     else
-                        reject()
+                        reject();
                 }
             }
         });
     }
 
     promise()
-        .then (function(response) {    
+        .then (function(response) {  
+            listControl.innerHTML = "";  
             for (var x = 0; x <= response.length-1; x++)        
                 //console.log(response[x].name);
                 geradorLi(response[x].name);
                 
         })
         .catch (function(error) {
-            console.log(error);
+            console.log(error)
         })
 
 }
 
-function geradorLi(nomeProjeto) {
+function geradorLi(texto) {
     var itemControl = document.createElement('li');
-    var textItem = document.createTextNode(nomeProjeto);
+    var textItem = document.createTextNode(texto);
     itemControl.appendChild(textItem);
     listControl.appendChild(itemControl);
 }
