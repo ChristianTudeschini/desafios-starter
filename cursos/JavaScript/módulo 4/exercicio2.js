@@ -16,9 +16,27 @@ function adicionarPromise(userName) {
     var promise = () => {
         return new Promise(function (resolve, reject) {
             var xhr = new XMLHttpRequest();
-            
+            xhr.open('GET','https://api.github.com/users/'+userName+'');
+            xhr.send(null);
+
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) 
+                        resolve(JSON.parse(xhr.responseText))
+                    else
+                        reject()
+                }
+            }
         });
     }
+
+    promise()
+        .then (function(response) {
+            console.log(response);
+        })
+        .catch (function(error) {
+            console.log(error);
+        })
 
 
 
