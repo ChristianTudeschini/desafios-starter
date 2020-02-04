@@ -1,18 +1,17 @@
-var inputControl = document.querySelector('#app input');
+var inputElement = document.querySelector('#app input');
 var listControl = document.querySelector('#app ul');
 
 function adicionar() {
-    var userName = inputControl.value;
+    var userName = inputElement.value;
     
     if (userName != '') 
         adicionarPromise(userName);
     else 
-        alert('Digite um usuário');
-    
+        alert('Digite um usuário');   
 }
 
 function adicionarPromise(userName) {
-
+    limpaLista();
     geradorLi('Carregando...');
 
     var promise = () => {
@@ -24,7 +23,7 @@ function adicionarPromise(userName) {
             xhr.onreadystatechange = () => {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200)
-                        resolve(JSON.parse(xhr.responseText))  ;
+                        resolve(JSON.parse(xhr.responseText));
                     else
                         reject();
                 }
@@ -34,21 +33,23 @@ function adicionarPromise(userName) {
 
     promise()
         .then (function(response) {  
-            listControl.innerHTML = "";  
-            for (var x = 0; x <= response.length-1; x++)        
-                //console.log(response[x].name);
-                geradorLi(response[x].name);
-                
+            limpaLista();
+            for (var x = 0; x <= response.length-1; x++)                        
+                geradorLi(response[x].name);                
         })
         .catch (function(error) {
-            console.log(error)
+            limpaLista();
+            geradorLi('Não foi possível encontrar repositórios deste usuário')
         })
-
 }
 
 function geradorLi(texto) {
-    var itemControl = document.createElement('li');
+    var itemElement = document.createElement('li');
     var textItem = document.createTextNode(texto);
-    itemControl.appendChild(textItem);
-    listControl.appendChild(itemControl);
+    itemElement.appendChild(textItem);
+    listControl.appendChild(itemElement);
+}
+
+function limpaLista() {
+    listControl.innerHTML = "";
 }
