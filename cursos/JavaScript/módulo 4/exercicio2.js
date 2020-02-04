@@ -16,7 +16,7 @@ function adicionarPromise(userName) {
     var promise = () => {
         return new Promise(function (resolve, reject) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET','https://api.github.com/users/'+userName+'');
+            xhr.open('GET','https://api.github.com/users/'+userName+'/repos');
             xhr.send(null);
 
             xhr.onreadystatechange = () => {
