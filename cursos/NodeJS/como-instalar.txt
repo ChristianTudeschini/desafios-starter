@@ -1,0 +1,23 @@
+﻿npm init -y
+npm install express
+
+1-Criar arquivo server.js (ou index.js)
+
+npm install -D nodemon
+
+2-Criar script no "scripts" do package.json
+"scripts": {
+    "dev": "nodemon server.js"
+}
+
+3-Para executar o projeto com os scripts habilitados, usar o seguinte comando:
+npm run dev
+
+npm install mongoose
+
+//Ele já automatiza os requires
+npm install require-dir
+
+npm install mongoose-paginate
+
+npm install cors
