@@ -1,0 +1,28 @@
+Para criar uma aplicação React:
+1- npm install -g create-react-app
+2- create-react-app nomedoprojeto
+
+Para iniciar o projeto (todos os comandos do projeto ficam no "scripts" do package.json):
+1- npm start (mesma coisa de react-scripts start)
+
+Deletando arquivos para começar o projeto de fato:
+-App.css
+-App.test.js
+-Index.css
+-logo.svg
+
+No arquivo index.js:
+-Remover a linha import './index.css';
+No arquivo App.js:
+-Remover as linhas 
+import logo from './logo.svg';
+import './App.css';
+E todo o conteudo presente dentro da div "App"
+
+-------------
+
+AXIOS/API:
+1- yarn add AXIOS
+
+Para fazer a navegação:
+1- yarn add react-router-dom

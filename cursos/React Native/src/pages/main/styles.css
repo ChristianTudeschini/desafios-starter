@@ -1,0 +1,76 @@
+.product-list {
+    max-width: 700px;
+    /* 20px no Topo, auto na direita e na esquerda e 0 embaixo */
+    margin: 20px auto 0;
+    /* 0 em cima e 20px em baixo (para não ficar grudado com o fim da página) */
+    padding: 0 20px;
+}
+
+.product-list article {
+    background: #fff;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.product-list article p {
+    font-size: 16px;
+    color: #999;
+    margin-top: 5px;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+.product-list article a {
+    height: 35px;
+    padding: 6px;
+    border-radius: 2px;
+    border: 2px solid #da552f;
+    background: none;    
+    color: #da552f;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s;
+}
+
+.product-list article a:hover {
+    background: #ca8471;
+    border: 2px solid #ca8471;
+    color: #fff;    
+}
+
+.product-list .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.product-list .actions button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    background: #da552f;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.product-list .actions button[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.product-list .actions button:hover {
+    opacity: 0.8;
+}
+
+.product-list .actions button[disabled]:hover {
+    opacity: 0.4;
+}
